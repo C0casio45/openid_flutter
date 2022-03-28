@@ -6,6 +6,7 @@ import 'src/openid_impl_stub.dart'
 
 part "src/openid_flow.dart";
 part "src/openid_client.dart";
+part "src/openid_issuer.dart";
 part "src/openid.dart";
 
 abstract class OpenidImpl {
