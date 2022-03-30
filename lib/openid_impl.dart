@@ -1,5 +1,7 @@
 library openid_flutter;
 
+import 'package:jose/jose.dart';
+import 'src/models/models.dart';
 import 'src/openid_impl_stub.dart'
     if (dart.library.io) 'openid_io_service.dart'
     if (dart.library.js) 'openid_browser_service.dart';

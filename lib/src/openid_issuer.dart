@@ -1,6 +1,4 @@
-import 'package:jose/jose.dart';
-
-import 'models/models.dart';
+part of openid_flutter;
 
 class Issuer {
   /// The OpenId Provider's metadatas
