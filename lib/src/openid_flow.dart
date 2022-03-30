@@ -1,10 +1,15 @@
 part of openid_flutter;
 
+/// Different type of [FlowType]
+/// - The [implicit] Flow is required for apps that have no “back end” logic on the web server, like a Javascript app.
+/// - The [authentication] (or Basic) Flow is designed for apps that have a back end that can communicate with the IdP away from prying eyes.
+/// - The [ressourceOwnerPasswordGrant] does not have an login UI and is useful when access to a web browser is not possible.
+/// - The [clientCredidentialsGrant] is useful for machine to machine authorization.
 enum FlowType {
   implicit,
-  authorizationCode,
-  proofKeyForCodeExchange,
-  jwtBearer
+  authentication,
+  ressourceOwnerPasswordGrant,
+  clientCredidentialsGrant
 }
 
 class Flow {
