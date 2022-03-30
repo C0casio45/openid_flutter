@@ -6,7 +6,11 @@ class Issuer {
 
   final Map<String, String> claimsMap;
 
-  final JsonWebKeyStore keyStore;
+  final JsonWebKeyStore _keyStore;
 
-  Issuer(this.metaDatas, this.claimsMap, this.keyStore);
+  /// Creates an issuer from its metadata.
+  Issuer(this.metaDatas, {this.claimsMap = const {}})
+      : _keyStore = metaDatas.jwksUri == null
+            ? JsonWebKeyStore()
+            : (JsonWebKeyStore()..addKeySetUrl(metaDatas.jwksUri!));
 }
