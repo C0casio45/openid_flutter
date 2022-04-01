@@ -7,7 +7,9 @@ Library to auth in your app by an openid method on all platform
 
 ## Features
 
-None for the moment
+- [ ] Openid connexion with token endpoint
+- [ ] Openid connexion with webview
+- [ ] Ready to use webview page
 
 ## Getting started
 
