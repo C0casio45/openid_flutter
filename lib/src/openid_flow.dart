@@ -27,6 +27,8 @@ class Flow {
   /// - openid (required; to indicate that the application intends to use OIDC to verify the user's identity)
   /// - profile (so you can personalize the email with the user's name)
   /// - email (so you know where to send the welcome email)
+  /// - address (so you know where (physical) to send the letter or whatever)
+  /// - phone (so you know who to call)
   final List<String> scopes;
 
   /// [state] is the state of the request
