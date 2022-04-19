@@ -1,5 +1,32 @@
 part of openid_flutter.exceptions;
 
+class HttpRequestException implements Exception {
+  late int _statusCode;
+  late String _body;
+
+  HttpRequestException(
+      {int statusCode = 400, String body = "Generic error handler"}) {
+    _statusCode = statusCode;
+    _body = body;
+
+    switch (_statusCode) {
+      case 400:
+        throw NoSuitableMethodException();
+      case 401:
+        throw ForbiddenException();
+      case 403:
+        throw UnauthorizedException();
+      case 408:
+        throw TimeoutException();
+      case 500:
+        throw NoSuitableMethodException();
+      default:
+        throw Exception(
+            "An exception has been thrown : Status code not handled ($_statusCode : $_body)");
+    }
+  }
+}
+
 class ForbiddenException implements Exception {
   late String _message;
 
