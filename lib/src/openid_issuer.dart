@@ -18,7 +18,7 @@ class Issuer {
             ? JsonWebKeyStore()
             : (JsonWebKeyStore()..addKeySetUrl(metaDatas.jwksUri!));
 
-  static Future<Issuer> discover(Uri uri, {Client? httpClient}) async {
+  static Future<Issuer> discover(Uri uri, {http.Client? httpClient}) async {
     if (_discoveries[uri] != null) return _discoveries[uri]!;
 
     var segments = uri.pathSegments.toList();
@@ -28,7 +28,7 @@ class Issuer {
     segments.addAll(['.well-known', 'openid-configuration']);
     uri = uri.replace(pathSegments: segments);
 
-    var json = await http.get(uri, client: httpClient);
+    var json = await BaseRepository.getHttp(uri, client: httpClient);
     return _discoveries[uri] = Issuer(OpenIdProviderMetadata.fromJson(json));
   }
 }

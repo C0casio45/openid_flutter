@@ -1,4 +1,4 @@
-part of openid_flutter;
+part of openid_flutter.models;
 
 class Client {
   /// [clientId] is the id of the client

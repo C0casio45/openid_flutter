@@ -1,13 +1,13 @@
 part of openid_flutter_repository;
 
 class BaseRepository {
-  Future getHttp(Uri url,
+  static Future getHttp(Uri url,
       {Map<String, String>? headers, required http.Client? client}) async {
     return _processResponse(await _withClient(
         (client) => client.get(url, headers: headers), client));
   }
 
-  Future postHttp(Uri url,
+  static Future postHttp(Uri url,
       {Map<String, String>? headers,
       body,
       Encoding? encoding,
