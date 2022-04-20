@@ -1,4 +1,4 @@
-import 'dart:convert';
+part of openid_flutter_repository;
 
 class BaseRepository {
   Future getHttp(Uri url,

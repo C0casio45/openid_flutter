@@ -1,23 +1,15 @@
-import 'dart:async';
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
-import 'package:logging/logging.dart';
-
-export 'package:http/http.dart' show Client;
+part of openid_flutter_repository;
 
 final _logger = Logger('openid_client');
 
 typedef ClientFactory = http.Client Function();
-
-
 
 dynamic _processResponse(http.Response response) {
   _logger.fine(
       '${response.request!.method} ${response.request!.url}: ${response.body}');
   var contentType = response.headers.entries
       .firstWhere((v) => v.key.toLowerCase() == 'content-type',
-          orElse: () => MapEntry('', ''))
+          orElse: () => const MapEntry('', ''))
       .value;
   var isJson = contentType.split(';').first == 'application/json';
 
